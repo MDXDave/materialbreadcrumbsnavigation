@@ -1,0 +1,16 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools" tools:context=".MainActivity">
+    <item android:id="@+id/action_add" android:title="Add"
+        android:orderInCategory="100" app:showAsAction="never" />
+    <item android:id="@+id/action_remove" android:title="Remove"
+        android:orderInCategory="101" app:showAsAction="never" />
+    <item android:id="@+id/action_replace_root" android:title="Replace root"
+        android:orderInCategory="102" app:showAsAction="never" />
+    <item android:id="@+id/action_replace_item" android:title="Replace item"
+        android:orderInCategory="103" app:showAsAction="never" />
+    <item android:id="@+id/action_replace_title" android:title="Replace title"
+        android:orderInCategory="104" app:showAsAction="never" />
+    <item android:id="@+id/action_move" android:title="Switch to 2 item"
+        android:orderInCategory="105" app:showAsAction="never" />
+</menu>
