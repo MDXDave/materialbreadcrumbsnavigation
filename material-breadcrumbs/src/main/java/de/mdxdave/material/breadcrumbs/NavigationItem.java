@@ -12,9 +12,16 @@ public class NavigationItem {
     private int Id;
     private String Tag;
     private Fragment fragment;
+    private String args;
 
     public NavigationItem(String title){
         this(0, title, "", null);
+    }
+
+    public NavigationItem(String title, String args){
+        this.Id = 0;
+        this.Title = title;
+        this.args = args;
     }
 
     public NavigationItem(String title, Fragment fragment){
@@ -56,4 +63,11 @@ public class NavigationItem {
         return this.Tag;
     }
 
+    public String getArgs() {
+        return args;
+    }
+
+    public void setArgs(String args) {
+        this.args = args;
+    }
 }

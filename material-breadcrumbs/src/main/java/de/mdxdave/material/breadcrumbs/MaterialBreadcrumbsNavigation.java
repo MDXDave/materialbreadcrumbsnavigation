@@ -39,6 +39,7 @@ public class MaterialBreadcrumbsNavigation extends LinearLayout {
     private boolean hasRootItem = false;
     private int active = 0;
     private ArrayList<NavigationItem> list;
+    private BreadcrumbClickListener breadcrumbClickListener;
 
     public MaterialBreadcrumbsNavigation(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -65,12 +66,24 @@ public class MaterialBreadcrumbsNavigation extends LinearLayout {
 
     }
 
+    public void setBackgroundColor(int Color){
+        horizontalScrollView.setBackgroundColor(Color);
+    }
+
+    public int getItemCount(){
+        return list.size();
+    }
+
     public void addItem(NavigationItem item){
         this.addItem(item, -1, false, true);
     }
 
     public void addItem(NavigationItem item, Boolean setActive){
         this.addItem(item, -1, false, setActive);
+    }
+
+    public void setBreadcrumbClickListener(BreadcrumbClickListener breadcrumbClickListener){
+        this.breadcrumbClickListener = breadcrumbClickListener;
     }
 
     public void addRootItem(NavigationItem item){
@@ -116,6 +129,12 @@ public class MaterialBreadcrumbsNavigation extends LinearLayout {
         }
     }
 
+    public void removeAll(){
+        list.clear();
+        viewGroup.removeAllViews();
+        hasRootItem = false;
+    }
+
     private void addItem(final NavigationItem item, int position, boolean isRoot, boolean setActive){
         LayoutInflater vi = (LayoutInflater) context.getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View v = vi.inflate(R.layout.item_view, null);
@@ -145,7 +164,7 @@ public class MaterialBreadcrumbsNavigation extends LinearLayout {
         textView.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                setActive(finalLast, false);
+                setActive(finalLast, false, true);
             }
         });
 
@@ -236,8 +255,7 @@ public class MaterialBreadcrumbsNavigation extends LinearLayout {
         setActive(child, true);
     }
 
-    public void setActive(int child, boolean scrollTo){
-
+    public void setActive(int child, boolean scrollTo, boolean clicked){
         if(child > list.size()){
             throw new IndexOutOfBoundsException("There are only "+list.size()+" items, you can not call the "+child+" one");
         }
@@ -250,33 +268,42 @@ public class MaterialBreadcrumbsNavigation extends LinearLayout {
 
         try {
             final View v = viewGroup.getChildAt(child);
-            TextView tv = (TextView)v.findViewById(R.id.breadcrumbnav_textView);
+            TextView tv = (TextView) v.findViewById(R.id.breadcrumbnav_textView);
             tv.setTextColor(textColor);
 
-            if(scrollTo)
+            if (scrollTo)
                 horizontalScrollView.post(new Runnable() {
                     @Override
                     public void run() {
-                            horizontalScrollView.scrollTo(v.getLeft(), 0);
+                        horizontalScrollView.scrollTo(v.getLeft(), 0);
                     }
                 });
 
             NavigationItem item = list.get(child);
-            Fragment fragment =  item.getFragment();
-            Bundle bn = fragment.getArguments();
-            if(bn == null){
-                bn = new Bundle();
+            if (item.getFragment() != null) {
+                Fragment fragment = item.getFragment();
+                Bundle bn = fragment.getArguments();
+                if (bn == null) {
+                    bn = new Bundle();
+                }
+                bn.putInt("materialBreadcrumbsPosition", child-1);
+                try {
+                    fragment.setArguments(bn);
+                } catch (IllegalStateException e) {
+                    // Fragment already active...
+                }
+                fragmentManager.beginTransaction().replace(fragmentLayout, fragment).commit();
+            }else if(item.getArgs() != null && clicked){
+                this.breadcrumbClickListener.onClick(item);
             }
-            bn.putInt("materialBreadcrumbsPosition", child);
-            try {
-                fragment.setArguments(bn);
-            }catch (IllegalStateException e) {
-                // Fragment already active...
-            }
-            fragmentManager.beginTransaction().replace(fragmentLayout, fragment).commit();
-        } catch (NullPointerException e){
+        }catch(NullPointerException e){
             e.printStackTrace();
         }
+
+    }
+
+    public void setActive(int child, boolean scrollTo){
+        setActive(child, scrollTo, false);
     }
 
     public void setupFragment(int layout, FragmentManager fm){

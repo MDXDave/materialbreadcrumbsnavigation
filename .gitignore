@@ -61,3 +61,5 @@ proguard/
 # Log Files
 *.log
 >>>>>>> .theirs
+/*.iml
+*.iml
