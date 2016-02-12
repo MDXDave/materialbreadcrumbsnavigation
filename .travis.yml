@@ -1,3 +1,7 @@
 language: android
+<<<<<<< HEAD
 before_install:
  - chmod +x gradlew
+=======
+sudo: required
+>>>>>>> dc8f5b604f8df33a62c07285e0720f9f944a0f0c
