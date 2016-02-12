@@ -63,3 +63,4 @@ proguard/
 >>>>>>> .theirs
 /*.iml
 *.iml
+.idea
