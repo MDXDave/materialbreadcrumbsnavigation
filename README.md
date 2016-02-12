@@ -17,7 +17,7 @@ Add to _dependencies_:
 compile 'de.mdxdave:materialbreadcrumbsnavigation:1.0'
 ```
 
-[travis-image]: https://img.shields.io/travis/MDXDave/MaterialBreadcrumbsNavigation/master.svg?style=flat-square
-[travis-url]: https://travis-ci.org/MDXDave/MaterialBreadcrumbsNavigation
+[travis-image]: https://img.shields.io/travis/MDXDave/materialbreadcrumbsnavigation/master.svg?style=flat-square
+[travis-url]: https://travis-ci.org/MDXDave/materialbreadcrumbsnavigation
 
  
