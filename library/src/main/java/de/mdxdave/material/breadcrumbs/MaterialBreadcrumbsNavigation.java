@@ -1,12 +1,14 @@
 package de.mdxdave.material.breadcrumbs;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.Gravity;
@@ -48,9 +50,9 @@ public class MaterialBreadcrumbsNavigation extends LinearLayout {
 
         TypedArray a = context.obtainStyledAttributes(attrs,
                 R.styleable.MaterialBreadcrumbsNavigation, 0, 0);
-        textColor = a.getColor(R.styleable.MaterialBreadcrumbsNavigation_textColor, getResources().getColor(R.color.default_text));
-        indicatorColor = a.getColor(R.styleable.MaterialBreadcrumbsNavigation_arrowColor, getResources().getColor(R.color.default_indicator));
-        backgroundColor = a.getColor(R.styleable.MaterialBreadcrumbsNavigation_backgroundColor, getResources().getColor(R.color.default_background));
+        textColor = a.getColor(R.styleable.MaterialBreadcrumbsNavigation_textColor, ContextCompat.getColor(context, R.color.default_text));
+        indicatorColor = a.getColor(R.styleable.MaterialBreadcrumbsNavigation_arrowColor, ContextCompat.getColor(context, R.color.default_indicator));
+        backgroundColor = a.getColor(R.styleable.MaterialBreadcrumbsNavigation_backgroundColor, ContextCompat.getColor(context, R.color.default_background));
         a.recycle();
 
         setOrientation(LinearLayout.HORIZONTAL);
