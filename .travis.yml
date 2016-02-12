@@ -1,4 +1,5 @@
 language: android
 before_install:
  - chmod +x gradlew
+ - echo y | android update sdk -u -a -t android-23
 
