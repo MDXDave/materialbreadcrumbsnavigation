@@ -1,5 +1,6 @@
 language: android
 before_install:
  - chmod +x gradlew
- - echo y | android update sdk -u -a -t android-23
- - echo y | android update sdk --all --filter build-tools-23.0.2 --no-ui
+ - echo y | android update sdk -u -a -t "android-23"
+ - echo y | android update sdk -u -a -t "build-tools-23.0.2"
+
