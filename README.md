@@ -1,6 +1,6 @@
 # Material Breadcrumbs Navigation
 
-[![Build status][travis-image]][travis-url] [![Dependency Status][dependency-image]][dependency-url]
+[![Build status][travis-image]][travis-url] [![Release](https://jitpack.io/v/de.mdxdave/materialbreadcrumbsnavigation.svg)](https://jitpack.io/#de.mdxdave/materialbreadcrumbsnavigation)
 
 ##Usage##
 Add to your ``build.gradle`` file:
@@ -19,7 +19,5 @@ compile 'de.mdxdave:materialbreadcrumbsnavigation:1.0'
 
 [travis-image]: https://img.shields.io/travis/MDXDave/MaterialBreadcrumbsNavigation/master.svg?style=flat-square
 [travis-url]: https://travis-ci.org/MDXDave/MaterialBreadcrumbsNavigation
-[dependency-image]: http://img.shields.io/david/MDXDave/MaterialBreadcrumbsNavigation.svg?style=flat-square
-[dependency-url]: https://david-dm.org/MDXDave/MaterialBreadcrumbsNavigation
 
  
