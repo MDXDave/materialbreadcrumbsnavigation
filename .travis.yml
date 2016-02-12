@@ -10,7 +10,7 @@ android:
 
 before_install:
  - chmod +x gradlew
- - pip install codecov
+ - pip install --user codecov
 
 after_success:
   - codecov
