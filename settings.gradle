@@ -1,3 +1,1 @@
 include ':library', ':sample'
-project(':library').projectDir = new File('material-breadcrumbs')
-project(':sample').projectDir = new File('samples')
