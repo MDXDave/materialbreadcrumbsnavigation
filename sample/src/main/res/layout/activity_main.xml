@@ -13,7 +13,7 @@
         android:minHeight="?attr/actionBarSize"
         android:background="?attr/colorPrimary" />
 
-    <de.mdxdave.material.breadcrumbs.MaterialBreadcrumbsNavigation
+    <de.mdxdave.materialbreadcrumbsnavigation.MaterialBreadcrumbsNavigation
         android:id="@+id/materialBreadcrumbsNavigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -22,7 +22,7 @@
 
     <fragment
         android:id="@+id/fragment"
-        android:name="de.mdxdave.breadcrumbsnavigationdemo.MainActivityFragment"
+        android:name="de.mdxdave.materialbreadcrumbsnavigationdemo.MainActivityFragment"
         tools:layout="@layout/fragment_main"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />

@@ -1,7 +1,25 @@
-package de.mdxdave.material.breadcrumbs;
+/**
+ * Android Library for displaying Breadcrumbs Navigation in Material Design
+ *
+ * Copyright (C) 2015-2016 MDXDave
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+package de.mdxdave.materialbreadcrumbsnavigation;
 
 import android.content.Context;
-import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
@@ -22,11 +40,8 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-/**
- * (c) 2015 by David Kurz
- * ProjectName: de.mdxdave.material.breadcrumbs
- * Created on  06.07.2015.
- */
+import de.mdxdave.material.breadcrumbs.R;
+
 public class MaterialBreadcrumbsNavigation extends LinearLayout {
 
     private View view;
@@ -65,11 +80,14 @@ public class MaterialBreadcrumbsNavigation extends LinearLayout {
         viewGroup = (ViewGroup) findViewById(R.id.parent_view);
 
         list = new ArrayList<>();
-
     }
 
     public void setBackgroundColor(int Color){
         horizontalScrollView.setBackgroundColor(Color);
+    }
+
+    public void setTextColor(int Color){
+        textColor = Color;
     }
 
     public int getItemCount(){
@@ -113,7 +131,6 @@ public class MaterialBreadcrumbsNavigation extends LinearLayout {
         }else{
             throw new IllegalStateException("There are no root item, so you can not replace it");
         }
-
     }
 
     public void replaceItem(int child, NavigationItem item){
@@ -156,11 +173,9 @@ public class MaterialBreadcrumbsNavigation extends LinearLayout {
 
         final TextView textView = (TextView) v.findViewById(R.id.breadcrumbnav_textView);
         textView.setTextColor(darkenColor(textColor));
-
         textView.setText(item.getTitle().toUpperCase());
 
         item.setId(last);
-
 
         final int finalLast = last;
         textView.setOnClickListener(new OnClickListener() {
@@ -295,7 +310,7 @@ public class MaterialBreadcrumbsNavigation extends LinearLayout {
                     // Fragment already active...
                 }
                 fragmentManager.beginTransaction().replace(fragmentLayout, fragment).commit();
-            }else if(item.getArgs() != null && clicked){
+            }else if(item.getObject() != null && clicked){
                 this.breadcrumbClickListener.onClick(item);
             }
         }catch(NullPointerException e){

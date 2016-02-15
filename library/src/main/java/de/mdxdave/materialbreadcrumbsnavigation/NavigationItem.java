@@ -1,27 +1,41 @@
-package de.mdxdave.material.breadcrumbs;
+/**
+ * Android Library for displaying Breadcrumbs Navigation in Material Design
+ *
+ * Copyright (C) 2015-2016 MDXDave
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+package de.mdxdave.materialbreadcrumbsnavigation;
 
 import android.support.v4.app.Fragment;
 
-/**
- * (c) 2015 by David Kurz
- * ProjectName: de.mdxdave.material.breadcrumbs
- * Created on  06.07.2015.
- */
 public class NavigationItem {
     private String Title;
     private int Id;
     private String Tag;
     private Fragment fragment;
-    private String args;
+    private Object object;
 
     public NavigationItem(String title){
         this(0, title, "", null);
     }
 
-    public NavigationItem(String title, String args){
+    public NavigationItem(String title, Object object){
         this.Id = 0;
         this.Title = title;
-        this.args = args;
+        this.object = object;
     }
 
     public NavigationItem(String title, Fragment fragment){
@@ -63,11 +77,11 @@ public class NavigationItem {
         return this.Tag;
     }
 
-    public String getArgs() {
-        return args;
+    public Object getObject() {
+        return object;
     }
 
-    public void setArgs(String args) {
-        this.args = args;
+    public void setObject(Object object) {
+        this.object = object;
     }
 }

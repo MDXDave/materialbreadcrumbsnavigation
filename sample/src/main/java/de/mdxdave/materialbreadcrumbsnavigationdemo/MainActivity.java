@@ -1,5 +1,23 @@
-package de.mdxdave.breadcrumbsnavigationdemo;
+/**
+ * Android Library for displaying Breadcrumbs Navigation in Material Design - sample app
+ *
+ * Copyright (C) 2015-2016 MDXDave
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
 
+package de.mdxdave.materialbreadcrumbsnavigationdemo;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -7,8 +25,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import de.mdxdave.material.breadcrumbs.MaterialBreadcrumbsNavigation;
-import de.mdxdave.material.breadcrumbs.NavigationItem;
+import de.mdxdave.materialbreadcrumbsnavigation.MaterialBreadcrumbsNavigation;
+import de.mdxdave.materialbreadcrumbsnavigation.NavigationItem;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -27,13 +45,13 @@ public class MainActivity extends AppCompatActivity {
         android.support.v4.app.FragmentTransaction transaction = manager.beginTransaction();
         fragment = new MainActivityFragment();
         Bundle bn = new Bundle();
-        bn.putString("Title", "Interner Speicher");
+        bn.putString("Title", "Internal storage");
         fragment.setArguments(bn);
         transaction.replace(R.id.fragment, fragment);
         transaction.commit();
 
         materialBreadcrumbsNavigation = (MaterialBreadcrumbsNavigation) findViewById(R.id.materialBreadcrumbsNavigation);
-        materialBreadcrumbsNavigation.addRootItem(new NavigationItem("Interner Speicher", fragment));
+        materialBreadcrumbsNavigation.addRootItem(new NavigationItem("Internal storage", fragment));
         materialBreadcrumbsNavigation.setupFragment(R.id.fragment, manager);
 
     }
@@ -56,13 +74,13 @@ public class MainActivity extends AppCompatActivity {
         }else if(id == R.id.action_replace_root){
             materialBreadcrumbsNavigation.replaceRootItem(new NavigationItem("Root-Storage", fragment));
         }else if(id == R.id.action_replace_title){
-            materialBreadcrumbsNavigation.replaceTitle(materialBreadcrumbsNavigation.getCurrent(), "Current pos "+materialBreadcrumbsNavigation.getCurrent());
+            materialBreadcrumbsNavigation.replaceTitle(materialBreadcrumbsNavigation.getCurrent(), "Current position "+materialBreadcrumbsNavigation.getCurrent());
         }else if(id == R.id.action_replace_item){
             MainActivityFragment fragment_photos = new MainActivityFragment();
             Bundle bn2 = new Bundle();
-            bn2.putString("Title", "Fotos");
+            bn2.putString("Title", "Photos");
             fragment_photos.setArguments(bn2);
-            materialBreadcrumbsNavigation.replaceItem(2, new NavigationItem("Fotos", fragment_photos));
+            materialBreadcrumbsNavigation.replaceItem(2, new NavigationItem("Photos", fragment_photos));
         }else if(id == R.id.action_add){
 
 
