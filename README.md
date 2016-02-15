@@ -14,7 +14,7 @@ repositories {
 Add to _dependencies_:
 
 ```gradle
-compile 'de.mdxdave:materialbreadcrumbsnavigation:1.0.1'
+compile 'de.mdxdave:materialbreadcrumbsnavigation:1.1'
 ```
 
 
