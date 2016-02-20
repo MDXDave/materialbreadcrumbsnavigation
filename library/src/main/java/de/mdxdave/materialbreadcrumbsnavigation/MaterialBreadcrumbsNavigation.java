@@ -232,6 +232,17 @@ public class MaterialBreadcrumbsNavigation extends LinearLayout {
         }
     }
 
+    public void removeLast(){
+        if(list.size()>1){
+            remove(list.size()-1);
+        }else if(list.size() == 1){
+            throw new IllegalStateException("You can not remove the root item!");
+        }else{
+            throw new IndexOutOfBoundsException("There are only one root item, so there is nothing to remove");
+        }
+
+    }
+
     public void removeItem(int child){
         if(child > list.size()) {
             throw new IndexOutOfBoundsException("There are only "+list.size()+" items, you can not remove the "+child+" one");
