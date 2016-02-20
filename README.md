@@ -1,6 +1,6 @@
 # Material Breadcrumbs Navigation
 
-[![Build status][travis-image]][travis-url] [![Release](https://jitpack.io/v/de.mdxdave/materialbreadcrumbsnavigation.svg?style=flat-squared)](https://jitpack.io/#de.mdxdave/materialbreadcrumbsnavigation)
+[![Build status][travis-image]][travis-url] [![Release](https://jitpack.io/v/de.mdxdave/materialbreadcrumbsnavigation.svg?style=flat-square)](https://jitpack.io/#de.mdxdave/materialbreadcrumbsnavigation)
 
 ##Import
 Add to your ``build.gradle`` file:
