@@ -2,7 +2,7 @@
 
 [![Build status][travis-image]][travis-url] [![Release](https://jitpack.io/v/de.mdxdave/materialbreadcrumbsnavigation.svg?style=flat-square)](https://jitpack.io/#de.mdxdave/materialbreadcrumbsnavigation)
 
-##Import
+## Import
 Add to your ``build.gradle`` file:
 
 ```gradle
@@ -18,7 +18,7 @@ compile 'de.mdxdave:materialbreadcrumbsnavigation:1.1.1'
 ```
 
 
-##Usage
+## Usage
 Place into your layout xml:
 
 ```xml
@@ -63,7 +63,7 @@ materialBreadcrumbsNavigation.setBreadcrumbClickListener(new BreadcrumbClickList
 
 Use ```setBackgroundColor(int Color)``` and ```setTextColor(int Color)``` to set color of MaterialBreadcrumbsNavigation programmatically.
 
-##License
+## License
 ```
 Copyright (C) 2015-2016 David Kurz
 
